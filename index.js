@@ -179,7 +179,8 @@ console.log(filterByWord(originalFlavors,"Chocolate"));
 
 /* 🧁🍦🍨 STRETCH 🍨🍦🍫*/ 
 
-/* STRETCH 1: Write a function that returns the average number of words in an array. You should be able to use this function for any array, but can test with originalFlavors.
+/* STRETCH 1: Write a function that returns the average number of words in an array. You should be able to use this function for any array,
+but can test with originalFlavors.
 
 Your function should accept: 
 
@@ -196,7 +197,8 @@ function getAverageWordLength(/*code here*/){
 }
 
 
-/* STRETCH 2: Baskin Robins now offers new flavors, seasonal flavors, and even regional flavors. Write a function that will randomly select a total of 31 flavors from originalFlavors, currentFlavors, seasonalFlavors, and regionalFlavors.
+/* STRETCH 2: Baskin Robins now offers new flavors, seasonal flavors, and even regional flavors.
+Write a function that will randomly select a total of 31 flavors from originalFlavors, currentFlavors, seasonalFlavors, and regionalFlavors.
 
 Your function should accept 4 different arrays,
 
@@ -277,8 +279,17 @@ var regionalFlavors = ["Pink Bubblegum",
     "Chocolate Chocolate Chip Cheesecake",
     "Caramel 'n' Cookies"]
 
-function getRandomFlavors(/*code here*/){
+function getRandomFlavors(array1, array2, array3, array4){
 
-    /*code here*/
+    let randomFlavors = [];
 
+    const newArr = array1.concat(array2, array3, array4);
+    for(let i =0; i < newArr.length; i++){
+        if (newArr[Math.floor(Math.random() * newArr.length)] != randomFlavors[i] && randomFlavors.length < 31){
+            randomFlavors.push(newArr[Math.floor(Math.random() * newArr.length)]);
+        }
+    }
+return randomFlavors;
 }
+
+console.log(getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors));
